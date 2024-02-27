@@ -1,0 +1,158 @@
+<%-include('header')%>
+
+  <!-- partial -->
+  <div class="main-panel">
+    <div class="content-wrapper">
+      <div class="row">
+        <div class="col-12 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Add Brand</h4>
+              <p class="card-description">Basic form elements</p>
+              <form class="forms-sample" action="/admin/product/insert_product" method="post" enctype="multipart/form-data">
+
+                <div class="form-group">
+                  <label for="exampleSelectGender">Category</label>
+                  <select class="form-control" name="category" id="product-category" onchange="return getsubcat()">
+                    <option>-- Select Category --</option>
+                    <% cate.map((v,i)=>{%>
+                      <option value="<%=v.id%>">
+                        <%=v.cateName%>
+                      </option>
+                      <%})%>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleSelectGender">Sub Category</label>
+                  <select class="form-control" name="subcategory" id="product-subcategory" onchange="getecat()">
+                    <option>-- Select Sub-Category --</option>
+                    <% subcate.map((v,i)=>{%>
+                      <option value="<%=v.id%>">
+                        <%=v.scateName%>
+                      </option>
+                      <%})%>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleSelectGender">Extra Category</label>
+                  <select class="form-control" name="extracategory" id="product-ecategory" onchange="getbrand()">
+                    <option>-- Select Sub-Category --</option>
+                    <% extracate.map((v,i)=>{%>
+                      <option value="<%=v.id%>">
+                        <%=v.ecateName%>
+                      </option>
+                      <%})%>
+                  </select>
+                </div>
+
+                <div id="BrandType">
+                  <div class="form-group">
+                    <label for="exampleSelectGender">Brand</label>
+                    <select class="form-control" name="brandname" id="product-brand" onchange="gettypes()">
+                      <option>-- Select Brand --</option>
+                      <% brand.map((v,i)=>{%>
+                        <option value="<%=v.id%>">
+                          <%=v.brandname%>
+                        </option>
+                        <%})%>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="exampleSelectGender">Type</label>
+                    <select class="form-control" name="typeName" id="product-type">
+                      <option>-- Select Type --</option>
+                      <% typeData.map((v,i)=>{ %>
+                        <option value="<%= v.id %>">
+                          <%= v.typeName %>
+                        </option>
+                        <% }) %>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputName1">Product Name</label>
+                  <input type="text" class="form-control" id="product-name" name="product_name"
+                    placeholder="Enter Product Name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputName1">Product Price</label>
+                  <input type="text" class="form-control" id="product-name" name="product_price"
+                    placeholder="Enter Product Price" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputName1">Old Price</label>
+                  <input type="text" class="form-control" id="product-name" name="old_price"
+                    placeholder="Enter Product Old Price" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputName1">Product Description</label>
+                  <input type="text" class="form-control" id="product-name" name="product_description"
+                    placeholder="Enter Product description" required>
+                </div>
+
+                <div class="mb-4">
+                  <label class="d-block form-label">Product Size</label>
+                  <div class="form-check mb-2 ">
+                    <input style="margin-left: 0;" type="radio" id="basic-default-radio-male" value="36"
+                      name="product_size" class="form-check-input" />
+                    <label class="form-check-label" for="basic-default-radio-male">36</label>
+                  </div>
+                  <div class="form-check">
+                    <input style="margin-left: 0;" type="radio" id="basic-default-radio-female" value="38"
+                      name="product_size" class="form-check-input" />
+                    <label class="form-check-label" for="basic-default-radio-female">38</label>
+                  </div>
+                  <div class="form-check">
+                    <input style="margin-left: 0;" type="radio" id="basic-default-radio-female" value="40"
+                      name="product_size" class="form-check-input" />
+                    <label class="form-check-label" for="basic-default-radio-female">40</label>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <label class="d-block form-label">Product Colour</label>
+                  <div class="form-check mb-2 ">
+                    <input style="margin-left: 0;" type="radio" id="basic-default-radio-male" value="Gray"
+                      name="product_color" class="form-check-input" />
+                    <label class="form-check-label" for="basic-default-radio-male">Gray</label>
+                  </div>
+                  <div class="form-check">
+                    <input style="margin-left: 0;" type="radio" id="basic-default-radio-female" value="Black"
+                      name="product_color" class="form-check-input" />
+                    <label class="form-check-label" for="basic-default-radio-female">Black</label>
+                  </div>
+                  <div class="form-check">
+                    <input style="margin-left: 0;" type="radio" id="basic-default-radio-female" value="White"
+                      name="product_color" class="form-check-input" />
+                    <label class="form-check-label" for="basic-default-radio-female">White</label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                            <label>Product Image</label>
+                            <input type="file" class="form-control" name="ProductImage" id="basic-default-upload-file" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Product Images</label>
+                            <input type="file" class="form-control" name="multipleproductimage" multiple id="basic-default-upload-file"/>
+                        </div>
+
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <%-include('footer')%>

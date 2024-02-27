@@ -1,0 +1,69 @@
+<%-include('header')%>
+
+        <!-- partial -->
+        <div class="main-panel">        
+            <div class="content-wrapper">
+              <div class="row">
+                <div class="col-12 grid-margin stretch-card">
+                  <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title">Add Brand</h4>
+                      <p class="card-description">Basic form elements</p>
+                      <form class="forms-sample" action="/admin/type/insertTypeData" method="post">
+
+                        <div class="form-group" >
+                          <label for="exampleSelectGender">Category</label>
+                            <select class="form-control" name="category" id="product-category" onchange="return getsubcat()">
+                              <option>-- Select Category --</option>
+                                <% cate.map((v,i)=>{%>
+                                    <option value="<%=v.id%>"><%=v.cateName%></option>
+                                <%})%>
+                            </select>
+                        </div>
+
+                        <div class="form-group" >
+                          <label for="exampleSelectGender">Sub Category</label>
+                            <select class="form-control" name="subcategory" id="product-subcategory" onchange="getecat()">
+                              <option>-- Select Sub-Category --</option>
+                                <% subcate.map((v,i)=>{%>
+                                    <option value="<%=v.id%>"><%=v.scateName%></option>
+                                <%})%>
+                            </select>
+                        </div>
+
+                        <div class="form-group" >
+                          <label for="exampleSelectGender">Extra Category</label>
+                            <select class="form-control" name="extracategory" id="product-ecategory" onchange="getbrand()">
+                              <option>-- Select Sub-Category --</option>
+                                <% extracate.map((v,i)=>{%>
+                                    <option value="<%=v.id%>"><%=v.ecateName%></option>
+                                <%})%>
+                            </select>
+                        </div>
+
+                        <div class="form-group" >
+                          <label for="exampleSelectGender">Extra Category</label>
+                            <select class="form-control" name="brandname" id="product-brand">
+                              <option>-- Select Brand --</option>
+                                <% brand.map((v,i)=>{%>
+                                    <option value="<%=v.id%>"><%=v.brandname%></option>
+                                <%})%>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputName1">Type Name</label>
+                            <input type="text" class="form-control" id="product-name" name="typeName" placeholder="Enter Type Name" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                        <button class="btn btn-light">Cancel</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>    
+
+
+<%-include('footer')%>

@@ -1,0 +1,41 @@
+<%- include('header')%>
+  
+      <!-- partial -->
+      <div class="main-panel">        
+        <div class="content-wrapper">
+          <div class="row">  
+
+            <div class="col-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Add Sub-Category</h4>
+                  <p class="card-description">Basic form elements</p>
+                  <form class="forms-sample" action="/admin/scate/insertScategoryData" method="post">
+                    <div class="form-group" >
+                      <label for="exampleSelectGender">Category</label>
+                        <select class="form-control" id="product-category" name="category" required>
+                          <option>-- Select Category --</option>
+                            <% cateData.map((v,i)=>{%>
+                                <option value="<%=v.id%>"><%=v.cateName%></option>
+                            <%})%>
+                        </select>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="exampleInputName1">Name</label>
+                        <input type="text" class="form-control" name="scateName" id="product-name" placeholder="Enter your name" required>
+                      </div>
+
+
+
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light">Cancel</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       
+
+  <%- include('footer')%>

@@ -1,0 +1,91 @@
+<%- include('header')%>
+  
+      <!-- partial -->
+      <div class="main-panel">        
+        <div class="content-wrapper">
+          <div class="row">  
+
+            <div class="col-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Basic form elements</h4>
+                  <p class="card-description">
+                    Basic form elements
+                  </p>
+                  <form class="forms-sample" action="/admin/insertAdminData" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                      <label for="exampleInputName1">Name</label>
+                      <input type="text" class="form-control" name="name" id="exampleInputName1" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail3">Email address</label>
+                      <input type="email" class="form-control" name="email" id="exampleInputEmail3" placeholder="Enter your Email" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword4">Password</label>
+                      <input type="password" class="form-control" name="password" id="exampleInputPassword4" placeholder="Password">
+                    </div>
+
+                    <div class="form-group" >
+                      <label for="exampleSelectGender">Gender</label>
+                      <% var city =['Surat','Vadodara','Rajkot','Ahemdabad','Bhavnagar','Amreli']%>
+                        <select class="form-control" id="exampleSelectGender" name="city" required>
+                          <option>-- Select City --</option>
+                          <%city.map((v,i)=>{%>
+                            <option value="<%=v%>"><%=v%></option>
+                            <%})%>
+                        </select>
+                      </div>
+
+                    <div class="form-group">
+                      <label>Profile Image</label>
+                      <input type="file" class="form-control"  name="adminImage"  id="basic-default-upload-file" required />
+                    </div>
+
+
+                    <div class="mb-4">
+                      <label class="d-block form-label">Gender</label>
+                      <div class="form-check mb-2 ">
+                        <input style="margin-left: 0;" type="radio" id="basic-default-radio-male" value="Male" name="gender" class="form-check-input" required  />
+                        <label class="form-check-label" for="basic-default-radio-male">Male</label>
+                      </div>
+                      <div class="form-check">
+                        <input style="margin-left: 0;" type="radio" id="basic-default-radio-female" value="Female" name="gender" class="form-check-input" required />
+                        <label class="form-check-label" for="basic-default-radio-female">Female</label>
+                      </div>
+                    </div>
+
+
+                    <div class="mb-4">
+                      <label class="d-block form-label">Hobby</label>
+                      <div class="form-check mb-2 ">
+                        <input style="margin-left: 0;" type="checkbox" id="basic-default-radio-male" name="hobby[]" value="Singing" class="form-check-input"/>
+                        <label class="form-check-label" for="basic-default-radio-male">Singing</label>
+                      </div>
+                      <div class="form-check mb-2 ">
+                        <input style="margin-left: 0;" type="checkbox" id="basic-default-radio-male" name="hobby[]"  value="Running" class="form-check-input"/>
+                        <label class="form-check-label" for="basic-default-radio-male">Running</label>
+                      </div>
+                      <div class="form-check mb-2 ">
+                        <input style="margin-left: 0;" type="checkbox" id="basic-default-radio-male" name="hobby[]" value="Eating" class="form-check-input"/>
+                        <label class="form-check-label" for="basic-default-radio-male">Eating</label>
+                      </div>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="exampleTextarea1">About Me</label>
+                      <textarea class="form-control" name="description" placeholder="Tell me about yourself" id="exampleTextarea1" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light">Cancel</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:../../partials/_footer.html -->
+       
+
+  <%- include('footer')%>

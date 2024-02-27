@@ -1,0 +1,77 @@
+<%- include('header')%>
+  <div class="content-wrapper">
+
+    <!-- Content -->
+
+    <div class="container-xxl flex-grow-1 container-p-y">
+
+      <h4 class="py-3 mb-4"><span class="text-muted fw-light">Update/</span> Brand</h4>
+
+      <!-- Basic Layout -->
+      <div class="row mb-4">
+        <!-- Browser Default -->
+        <div class="col-md mb-4 mb-md-0">
+          <div class="card">
+            <h5 class="card-header">Update Brand</h5>
+            <div class="card-body">
+              <form class="" action="/admin/type/editTypeData" method="post">
+                <input type="hidden" name="EditId" value="<%=AdminData.id%>">
+
+                <div class="form-group">
+                    <label for="exampleInputName1">Category</label>
+                    <input type="text" class="form-control" name="cateName" value="<%=AdminData.category%>" id="exampleInputName1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputName1">Sub-Category</label>
+                    <input type="text" class="form-control" name="scateName" value="<%=AdminData.subcategory%>" id="exampleInputName1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputName1">Extra-Category</label>
+                    <input type="text" class="form-control" name="ecateName" value="<%=AdminData.extracategory%>" id="exampleInputName1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputName1">Brand</label>
+                    <input type="text" class="form-control" name="brandname" value="<%=AdminData.brandname%>" id="exampleInputName1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputName1">Type</label>
+                    <input type="text" class="form-control" name="brandname" value="<%=AdminData.typeName%>" id="exampleInputName1" required>
+                </div>
+
+                <div class="row">
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- /Browser Default -->
+      
+        <!-- Bootstrap Validation -->
+      
+        <!-- /Bootstrap Validation -->
+      </div>
+
+
+   
+     
+
+      <!-- Form Alignment -->
+
+    </div>
+    <!-- / Content -->
+
+
+
+
+   
+    
+  <!-- ========== tab components end ========== -->
+
+  <%- include('footer')%>

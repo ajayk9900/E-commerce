@@ -1,0 +1,48 @@
+<%-include('header')%>
+
+        <!-- partial -->
+        <div class="main-panel">        
+            <div class="content-wrapper">
+              <div class="row">
+                <div class="col-12 grid-margin stretch-card">
+                  <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title">Add Extra-Category</h4>
+                      <p class="card-description">Basic form elements</p>
+                      <form class="forms-sample" action="/admin/ecate/insertEcategoryData" method="post">
+
+                        <div class="form-group" >
+                          <label for="exampleSelectGender">Category</label>
+                            <select class="form-control" name="category" id="product-category" onchange="return getsubcat()" required>
+                              <option>-- Select Category --</option>
+                                <% cateData.map((v,i)=>{%>
+                                    <option value="<%=v.id%>"><%=v.cateName%></option>
+                                <%})%>
+                            </select>
+                        </div>
+                        <div class="form-group" >
+                          <label for="exampleSelectGender">Sub Category</label>
+                            <select class="form-control" name="subcategory" id="product-subcategory">
+                              <option>-- Select Sub-Category --</option>
+                                <% scateData.map((v,i)=>{%>
+                                    <option value="<%=v.id%>"><%=v.scateName%></option>
+                                <%})%>
+                            </select>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="exampleInputName1">Extra-Category</label>
+                            <input type="text" class="form-control" id="product-name" name="ecateName" placeholder="Enter Extra-Category name" required>
+                          </div>
+
+                        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                        <button class="btn btn-light">Cancel</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>    
+
+
+<%-include('footer')%>

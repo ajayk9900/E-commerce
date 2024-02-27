@@ -1,0 +1,112 @@
+<%- include("header")%>
+  <div class="content-wrapper">
+
+    <!-- Content -->
+
+    <div class="container-xxl flex-grow-1 container-p-y">
+
+
+      <h4 class="py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Vertical Layouts</h4>
+
+      <!-- Basic Layout -->
+      <div class="row mb-4">
+        <!-- Browser Default -->
+        <div class="col-md mb-4 mb-md-0">
+          <div class="card">
+            <h5 class="card-header">Browser Default</h5>
+            <div class="card-body">
+              <form class="" action="/admin/editAdminData" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="EditId" value="<%=AdminData.id%>">
+                <div class="form-floating form-floating-outline mb-4">
+                  <input type="text" class="form-control" name="name" value="<%=AdminData.name%>" id="basic-default-name" placeholder="John Doe" required />
+                  <label for="basic-default-name">Name</label>
+                </div>
+                <div class="form-floating form-floating-outline mb-4">
+                  <input type="email" id="basic-default-email" name="email" value="<%=AdminData.email%>" class="form-control" placeholder="john.doe" required />
+                  <label for="basic-default-email">Email</label>
+                </div>
+
+                <div class="form-group" >
+                  <label for="exampleSelectGender">City</label>
+                  <% var city =['Surat','Vadodara','Rajkot','Ahemdabad','Bhavnagar','Amreli']%>
+                    <select class="form-control" id="exampleSelectGender" name="city" required>
+                      <option>-- Select City --</option>
+                      <%city.map((v,i)=>{%>
+                        <option value="<%=v%>"<%if(AdminData.city==v){%> <%='selected'%> <%}%>><%=v%></option>
+                        <%})%>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Profile Image</label>
+                    <input type="file" class="form-control"  name="adminImage"  id="basic-default-upload-file" required />
+                  </div>
+                <div class="mb4">
+                  <img src="<%=AdminData.adminImage%>"    class="ms-3 rounded" height="60" >
+                </div>
+
+                <div class="mb-4">
+                  <label class="d-block form-label">Gender</label>
+                  <div class="form-check mb-2 ">
+                    <input style="margin-left: 0;" type="radio" id="basic-default-radio-male" value="Male" name="gender" class="form-check-input" required checked />
+                    <label class="form-check-label" for="basic-default-radio-male">Male</label>
+                  </div>
+                  <div class="form-check">
+                    <input style="margin-left: 0;" type="radio" id="basic-default-radio-female" value="Female" name="gender" class="form-check-input" required />
+                    <label class="form-check-label" for="basic-default-radio-female">Female</label>
+                  </div>
+                </div>
+                <div class="mb-4">
+                  <label class="d-block form-label">Hobby</label>
+                  <div class="form-check mb-2 ">
+                    <input style="margin-left: 0;" type="checkbox" id="basic-default-radio-male" name="hobby[]" value="Singing" <%if(AdminData.hobby.includes('Singing')){%> <%='checked'%><%}%> class="form-check-input"/>
+                    <label class="form-check-label" for="basic-default-radio-male">Singing</label>
+                  </div>
+                  <div class="form-check mb-2 ">
+                    <input style="margin-left: 0;" type="checkbox" id="basic-default-radio-male" name="hobby[]"  value="Running"  <%if(AdminData.hobby.includes('Running')){%> <%='checked'%><%}%> class="form-check-input"/>
+                    <label class="form-check-label" for="basic-default-radio-male">Running</label>
+                  </div>
+                  <div class="form-check mb-2 ">
+                    <input style="margin-left: 0;" type="checkbox" id="basic-default-radio-male" name="hobby[]" value="Eating" <%if(AdminData.hobby.includes('Eating')){%> <%='checked'%><%}%> class="form-check-input"/>
+                    <label class="form-check-label" for="basic-default-radio-male">Eating</label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleTextarea1">About Me</label>
+                  <textarea class="form-control" name="description" placeholder="Tell me about yourself" id="exampleTextarea1" rows="4"><%=AdminData.description%></textarea>
+                </div>
+
+                <div class="row">
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- /Browser Default -->
+      
+        <!-- Bootstrap Validation -->
+      
+        <!-- /Bootstrap Validation -->
+      </div>
+
+
+   
+     
+
+      <!-- Form Alignment -->
+
+    </div>
+    <!-- / Content -->
+
+
+
+
+   
+    
+  <!-- ========== tab components end ========== -->
+
+  <%- include('footer')%>
